@@ -5,13 +5,16 @@ import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineUser } from "react-icon
 import * as UserService from '../../service/userService';
 import * as CategoryService from '../../service/categoryService.js';
 import { useDispatch, useSelector } from "react-redux";
-import { Popover } from "antd";
+import { Badge, Button, Popover } from "antd";
 import {WrapperContentPopup } from './style.js';
 import { resetUser } from '../../redux/slides/userSlide'
+
 
 function HeaderComponent() {
   const [menuOpen, setMenuOpen] = useState(false); 
   const user = useSelector((state) => state.user);
+  const cart = useSelector((state) => state.cart);  
+  
   const [categories, setCategories] = useState([]);
   
   const navigate = useNavigate();
@@ -80,9 +83,14 @@ function HeaderComponent() {
         </NavLink>
       </Nav>
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-        <CartButton onClick={() => handleNavigate("/cart")}>
-          <AiOutlineShoppingCart size={24} />
-        </CartButton>
+        {user?.id 
+        ? <Badge count = {cart?.cartItems.length} size='small'>
+            <CartButton onClick={() => handleNavigate("/cart")}>
+              <AiOutlineShoppingCart size={24} />
+            </CartButton>
+          </Badge>
+        : <div></div>
+      }
         {user?.token 
         ?  <>
             <Popover content = {content} trigger="click">
