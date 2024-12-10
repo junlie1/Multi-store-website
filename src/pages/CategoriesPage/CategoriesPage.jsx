@@ -14,7 +14,6 @@ import {
 import CardComponent from "../../components/CardComponent/CardComponent";
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 import FooterComponent from "../../components/FooterComponent/FooterComponent";
-
 function CategoriesPage() {
   const { category } = useParams(); 
   const [products, setProducts] = useState([]); 
@@ -22,12 +21,13 @@ function CategoriesPage() {
   const [sortOption, setSortOption] = useState("rating"); 
   const [page, setPage] = useState(1); 
   const [totalPages, setTotalPages] = useState(0); 
-
   
   useEffect(() => {
   const fetchProducts = async () => {
     try {
       const result = await ProductService.getProductsByCategory(category, page);
+      console.log('result',result);
+      
       if (result && result.products) {
         setProducts(result.products);
         setTotalPages(result.totalPages);
@@ -45,33 +45,24 @@ function CategoriesPage() {
   };
   fetchProducts();
 }, [category, page]);
-
-
-
   const handleSortChange = (e) => {
     const value = e.target.value;
     setSortOption(value);
-
     const sortedProducts = [...products].sort((a, b) => {
       if (value === "rating") return b.averageRating - a.averageRating; 
       if (value === "priceLowToHigh") return a.productPrice - b.productPrice; 
       if (value === "priceHighToLow") return b.productPrice - a.productPrice; 
       return 0;
     });
-
     setProducts(sortedProducts);
   };
-
-
   const handlePageChange = (newPage) => {
     setPage(newPage); 
   };
-
   
   if (loading) {
     return <div>Loading...</div>;
   }
-
   return (
     <>
       <HeaderComponent />

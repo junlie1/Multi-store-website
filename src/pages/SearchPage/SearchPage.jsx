@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Container, ProductList, Message } from "./style";
+import { Container, ProductList, Message, ProductsContainer } from "./style";
 import CardComponent from "../../components/CardComponent/CardComponent";
 import { searchProducts } from "../../service/productService";
-
+import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 function SearchPage() {
   const [searchParams] = useSearchParams();
   const [products, setProducts] = useState([]);  
   const [loading, setLoading] = useState(true);
-
   const searchTerm = searchParams.get("term");
-
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
@@ -23,26 +21,25 @@ function SearchPage() {
         setLoading(false); // Kết thúc loading
       }
     };
-
     if (searchTerm) fetchProducts(); // Chỉ fetch khi có từ khóa
   }, [searchTerm]);
   
   return (
-    <Container>
+    <>
+    <HeaderComponent />
+      <ProductsContainer>
       <h2>Results for "{searchTerm}"</h2>
       {loading ? (
         <Message>Loading...</Message>
       ) : products.length > 0 ? (
-        <ProductList>
-          {products.map((product) => (            
+          products.map((product) => (            
             <CardComponent key={product._id} product={product} />
-          ))}
-        </ProductList>
+          ))
       ) : (
         <Message>No products found</Message>
       )}
-    </Container>
+    </ProductsContainer>
+    </>
   );
 }
-
 export default SearchPage;

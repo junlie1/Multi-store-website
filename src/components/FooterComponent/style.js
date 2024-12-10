@@ -16,7 +16,7 @@ export const FooterContainer = styled.footer`
   }
 `;
 
-
+// Mỗi phần (section) trong Footer
 export const FooterSection = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,14 +28,14 @@ export const FooterSection = styled.div`
   }
 `;
 
-
+// Tiêu đề trong Footer Section
 export const SectionTitle = styled.h3`
   font-size: 18px;
   margin-bottom: 10px;
   color: #ffffff; /* Đổi sang màu chữ trắng */
 `;
 
-
+// Liên kết và đoạn văn bản
 export const FooterText = styled.p`
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8); /* Chữ màu trắng nhạt */
@@ -53,7 +53,7 @@ export const FooterLink = styled.a`
   }
 `;
 
-
+// Input và Button cho phần "Get updates"
 export const EmailInput = styled.input`
   padding: 8px;
   margin-bottom: 10px;

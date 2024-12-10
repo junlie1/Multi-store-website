@@ -32,14 +32,13 @@ export const getDetailsProduct = async (id) => {
 
 export const getProductsByCategory = async (category, page = 1, limit = 25) => {
   try {
-    const response = await axios.get(`${process.env.REACT_APP_API_URL_BACKEND}/products-by-category/${category}?page=${page}&limit=${limit}`);
+    const response = await axios.get(`${process.env.REACT_APP_API_URL_BACKEND}/products-by-category/web/${category}?page=${page}&limit=${limit}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching products by category:", error);
     throw error;
   }
 };
-
 // 
 export const searchProducts = async (searchTerm) => {
   try {
