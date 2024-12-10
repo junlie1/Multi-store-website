@@ -32,7 +32,7 @@ const PaymentPage = () => {
           phoneNumber: user?.phoneNumber, 
           productId: item.productId,
           productName: item.productName,
-          productPrice: item.productPrice,
+          productPrice: (item.productPrice) * 24000,
           quantity: item.quantity,
           category: item.category,
           image: item.image[0],
@@ -40,7 +40,7 @@ const PaymentPage = () => {
           buyerId: user?.id,
           paymentStatus: 'pending',
           paymentIntentId: null,
-          paymentMethod: 'cod',
+          paymentMethod: 'cod-web',
           isPaid: false,
         }));
 

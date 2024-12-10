@@ -8,6 +8,10 @@ import PaymentPage from "../pages/PaymentPage/PaymentPage";
 import ProductDetailPage from "../pages/ProductDetailPage/ProductDetailPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import HomeSection from '../pages/ProfilePage/HomeSection/HomeSection';
+import PurchaseHistory from '../pages/ProfilePage/PurchaseHistory/PurchaseHistory';
+import Account from '../pages/ProfilePage/Account/Account';
+
 
 export const routes = [
     {
@@ -41,6 +45,20 @@ export const routes = [
     {
         path: '/profile-user',
         page: ProfilePage,
+        children: [ // Nested routes cho ProfilePage
+            {
+                path: 'home',
+                page: HomeSection,
+            },
+            {
+                path: 'purchase-history',
+                page: PurchaseHistory,
+            },
+            {
+                path: 'account',
+                page: Account,
+            },
+        ],
     },
     {
         path: '/payment',

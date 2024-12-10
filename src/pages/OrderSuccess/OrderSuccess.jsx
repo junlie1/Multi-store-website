@@ -28,7 +28,7 @@ const OrderSuccess = () => {
     <>
       <HeaderComponent />
       <div style={{ padding: '20px' }}>
-        <h1>Danh sách đơn hàng</h1>
+        <h1>Danh sách đơn hàng đã đặt</h1>
         {loading ? (
           <p>Đang tải danh sách đơn hàng...</p>
         ) : orders.length === 0 ? (
@@ -58,15 +58,28 @@ const OrderSuccess = () => {
                 <div style={{ marginTop: '10px' }}>
                   <h2>{order.productName}</h2>
                   <p>
-                    <strong>Giá:</strong> {order.productPrice.toLocaleString('vi-VN')} VND
+                    <strong>Giá: </strong>
+                    {
+                      order?.paymentMethod === 'card' 
+                      ? `${order.productPrice} $`
+                      : order?.paymentMethod === 'vnpay' || order?.paymentMethod === 'cod-web'
+                      ? `${order.productPrice} VND`
+                      : "ABC"
+                    }
                   </p>
                   <p>
                     <strong>Số lượng:</strong> {order.quantity}
                   </p>
                   <p>
-                    <strong>Thành tiền:</strong> {(
-                      order.productPrice * order.quantity
-                    ).toLocaleString('vi-VN')} VND
+                  <strong>Thành tiền: </strong>
+                    {
+                      order?.paymentMethod === 'card' 
+                      ? `${(order.productPrice * order.quantity)} $`
+                      : order?.paymentMethod === 'vnpay' || order?.paymentMethod === 'cod-web'
+                      ? `${(order.productPrice * order.quantity).toLocaleString('vi-VN')} VND`
+                      : "ABC"
+                    }
+                     
                   </p>
                   <p>
                     <strong>Phương thức thanh toán:</strong> {order.paymentMethod}

@@ -50,6 +50,7 @@ function HeaderComponent() {
   const content = (
     <div>
         <WrapperContentPopup onClick = {() => navigate('/profile-user')}>Thông tin cá nhân</WrapperContentPopup>
+        <WrapperContentPopup onClick = {() => navigate('/order-success')}>Danh sách order</WrapperContentPopup>
         <WrapperContentPopup onClick={handleLogout}>Đăng xuất</WrapperContentPopup>
     </div>
 );

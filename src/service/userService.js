@@ -38,9 +38,9 @@ export const getDetailsUser = async (userId) => {
     }
   };
 
-  export const logoutUser = async () => {
-    const res = await axios.post(`${process.env.REACT_APP_API_URL_BACKEND}/user/log-out`)
-    return res.data;
+export const logoutUser = async () => {
+  const res = await axios.post(`${process.env.REACT_APP_API_URL_BACKEND}/user/log-out`)
+  return res.data;
 } 
 
 export const updateUser = async (id,data) => {
