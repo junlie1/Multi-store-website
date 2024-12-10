@@ -22,7 +22,7 @@ export const Logo = styled.div`
   cursor: pointer;
 
   &:hover {
-    color: #daa520; /* Thay đổi màu khi hover */
+    color: #D2042D; /* Thay đổi màu khi hover */
   }
 `;
 
@@ -123,3 +123,58 @@ export const WrapperContentPopup = styled.p`
         color: rgb(26, 148, 255);
     }
 `
+
+
+// 
+export const SearchModal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  color: white;
+`;
+
+export const SearchInput = styled.input`
+  padding: 10px;
+  font-size: 16px;
+  width: 80%;
+  margin: 20px 0;
+`;
+
+export const SearchResults = styled.div`
+  max-height: 200px;
+  overflow-y: auto;
+  width: 80%;
+  background: white;
+  color: black;
+  border-radius: 5px;
+`;
+
+export const SearchItem = styled.div`
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+
+  &:hover {
+    background: #f0f0f0;
+  }
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+`;
+// 

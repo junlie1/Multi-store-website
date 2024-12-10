@@ -8,41 +8,10 @@ function App() {
     <div>
       <Router>
         <Routes>
-          {routes.map((route, index) => {
-            const Page = route.page;
-
-            // Nếu có nested routes (children)
-            if (route.children) {
-              return (
-                <Route
-                  key={index}
-                  path={route.path}
-                  element={
-                    <Layout>
-                      <Page />
-                    </Layout>
-                  }
-                >
-                  {route.children.map((child, childIndex) => {
-                    const ChildPage = child.page;
-                    return (
-                      <Route
-                        key={childIndex}
-                        path={child.path}
-                        element={<ChildPage />}
-                      />
-                    );
-                  })}
-                </Route>
-              );
-            }
-
-            // Nếu không có nested routes
+          {routes.map((route) => {
+            const Page = route.page
             return (
-              <Route
-                key={index}
-                path={route.path}
-                element={
+              <Route path={route.path} element = {
                   <Layout>
                     <Page />
                   </Layout>

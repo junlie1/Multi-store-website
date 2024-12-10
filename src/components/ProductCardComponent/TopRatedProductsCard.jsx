@@ -1,5 +1,5 @@
 import React from "react";
-import CardComponent from "./CardComponent";
+import CardComponent from "../CardComponent/CardComponent";
 import { ProductsContainer } from "./style";
 
 const TopRatedProductsCard = ({ products, isLoading }) => {

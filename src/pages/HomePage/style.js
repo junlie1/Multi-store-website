@@ -7,6 +7,7 @@ export const Container = styled.div`
 
 // Hero Section
 export const HeroSection = styled.div`
+  height: 100vh;
   width: 100%; 
   background: url('/assets/Home.png') no-repeat center center/cover;
   background-color: #001F3F;

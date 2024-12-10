@@ -29,3 +29,27 @@ export const getDetailsProduct = async (id) => {
   const res = await axios.get(`${process.env.REACT_APP_API_URL_BACKEND}/product/${id}`);    
   return res.data;
 }
+
+export const getProductsByCategory = async (category, page = 1, limit = 25) => {
+  try {
+    const response = await axios.get(`${process.env.REACT_APP_API_URL_BACKEND}/products-by-category/${category}?page=${page}&limit=${limit}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching products by category:", error);
+    throw error;
+  }
+};
+
+// 
+export const searchProducts = async (searchTerm) => {
+  try {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL_BACKEND}/search?term=${searchTerm}`
+    );
+    return response.data.products; // Trả về danh sách sản phẩm
+  } catch (error) {
+    console.error("Error fetching search results:", error);
+    throw error;
+  }
+};
+// 

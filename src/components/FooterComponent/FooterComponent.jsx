@@ -13,8 +13,8 @@ function FooterComponent() {
   return (
     <FooterContainer>
       <FooterSection>
-        <SectionTitle>Luxe</SectionTitle>
-        <FooterText>Copyright © 2021 Luxe</FooterText>
+        <SectionTitle>Group 3</SectionTitle>
+        <FooterText>Copyright © 2024 Group 3</FooterText>
         <FooterText>All rights reserved</FooterText>
       </FooterSection>
       <FooterSection>

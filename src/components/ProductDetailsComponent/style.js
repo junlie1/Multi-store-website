@@ -1,6 +1,4 @@
 import styled, { createGlobalStyle } from "styled-components";
-import {InputNumber } from "antd";
-
 
 // Reset toàn bộ trang
 export const GlobalStyle = createGlobalStyle`
@@ -128,23 +126,3 @@ export const FullWidthSection = styled.div`
   background-color: #fff;
   padding: 10px 0;
 `;
-
-export const WrapperQualityProduct = styled.div`
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    width: 120px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-`
-
-export const WrapperInputNumber = styled(InputNumber)`
-    &.ant-input-number.ant-input-number-sm {
-        width: 40px;
-        border-top: none;
-        border-bottom: none;
-        .ant-input-number-handler-wrap {
-            display: none !important;
-        }
-    };
-`

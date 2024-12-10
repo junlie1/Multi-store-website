@@ -1,7 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import userReducer from './slides/userSlide';  // Import default hoặc named export từ counterSlide
-import cartReducer from './slides/cartSlide';  // Import default hoặc named export từ counterSlide
-
 import {
   persistStore,
   persistReducer,
@@ -23,7 +21,6 @@ const persistConfig = {
 }
 const rootReducer = combineReducers({
   user: userReducer,
-  cart: cartReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
