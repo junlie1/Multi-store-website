@@ -19,17 +19,6 @@ const HomeSection = () => {
   const [orders, setOrders] = useState([]);
   const [banners, setBanners] = useState([]);
   console.log('banners', banners);
-  
-
-  const settings = {
-    dots: true,              // Hiển thị các dấu chấm dưới slider
-    infinite: true,          // Cho phép cuộn vô hạn
-    speed: 500,              // Tốc độ chuyển slide
-    slidesToShow: 4,         // Hiển thị 4 ảnh trên 1 hàng (1 dòng)
-    slidesToScroll: 4,       // Cuộn 4 ảnh mỗi lần
-    autoplay: true,          // Tự động chuyển slide
-    autoplaySpeed: 2000,     // Tốc độ tự động chuyển
-  };
 
   // Lấy danh sách đơn hàng
   useEffect(() => {

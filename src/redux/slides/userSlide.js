@@ -29,6 +29,20 @@ export const userSlide = createSlice({
 
       localStorage.setItem('user', JSON.stringify(state));
     },
+    getUser: (state, action) => {
+      const { fullName, email, city, locality, phoneNumber, _id, token } = action.payload;
+
+      state.fullName = fullName || '';
+      state.email = email || '';
+      state.city = city || '';
+      state.locality = locality || '';
+      state.phoneNumber = phoneNumber || '';
+      state.id = _id || '';
+      state.token = token || '';
+
+      // Lưu vào localStorage để giữ thông tin sau khi refresh
+      localStorage.setItem('user', JSON.stringify(state));
+    },
     resetUser: (state) => {
         state.fullName = '';
         state.email = '';
@@ -45,6 +59,6 @@ export const userSlide = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { updateUser, resetUser } = userSlide.actions
+export const { updateUser, getUser ,resetUser } = userSlide.actions
 
 export default userSlide.reducer

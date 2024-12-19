@@ -23,7 +23,6 @@ const LoginPage = () => {
 
   const mutation = useMutationHooks(
     data => UserService.signin(data)
-    
   );
   const {data ,isSuccess, isError, error} = mutation;  
 
@@ -66,6 +65,10 @@ const LoginPage = () => {
   const handleNavigateToSignup = () => {
     navigate('/register');
   };
+  
+  const handleNavigateToChangePassword = () => {
+    navigate('/check-email');
+  }
 
   return (
     <LoginContainer>
@@ -118,7 +121,7 @@ const LoginPage = () => {
             }}
             textButton="Đăng nhập"
           />
-          <p>
+          <p onClick={handleNavigateToChangePassword}>
             <WrapperTextLight>Quên mật khẩu?</WrapperTextLight>
           </p>
           <p>

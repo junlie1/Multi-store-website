@@ -47,3 +47,13 @@ export const updateUser = async (id,data) => {
   const res = await axios.patch(`${process.env.REACT_APP_API_URL_BACKEND}/users-web/${id}`, data);
   return res.data;
 } 
+
+export const checkEmail = async (data) => {
+  const response = await axios.post(`${process.env.REACT_APP_API_URL_BACKEND}/check-email`, data);  
+  return response.data;
+}
+
+export const changePassword = async (userId, data) => {
+  const res = await axios.post(`${process.env.REACT_APP_API_URL_BACKEND}/update/${userId}`, data);
+  return res.data;
+}

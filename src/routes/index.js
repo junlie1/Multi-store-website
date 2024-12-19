@@ -12,6 +12,8 @@ import HomeSection from '../pages/ProfilePage/HomeSection/HomeSection';
 import PurchaseHistory from '../pages/ProfilePage/PurchaseHistory/PurchaseHistory';
 import Account from '../pages/ProfilePage/Account/Account';
 import SearchPage from "../pages/SearchPage/SearchPage";
+import CheckEmail from "../pages/CheckEmail/CheckEmail";
+import ChangePassword from "../pages/ChangePassword/ChangePassword";
 
 
 export const routes = [
@@ -73,4 +75,12 @@ export const routes = [
         path: '/search', 
         page: SearchPage,
     },
+    {
+        path: '/check-email',
+        page: CheckEmail
+    },
+    {
+        path: '/update-password',
+        page: ChangePassword
+    }
 ]
